@@ -1,4 +1,8 @@
-<h1>prueba del modulo http</h1>
+<div class="formularioAdmin">
+<div class="titule">
+    <h1>Formulario administrador producto</h1>
+</div>
+
 
 <div class="container">
     <div class="row">
@@ -10,34 +14,40 @@
                     <th>Precio</th>
                     <th>Descripcion</th>
                     <th>Eliminar</th>
-                  
+
                 </thead>
                 <tbody>
-                     <tr *ngFor ="let item of personas" ></tr>
-                     <td>{{item.id}}</td>
-                     <td>{{item.producname}}</td>
-                     <td>{{item.price}}</td>
-                     <td>{{item.description}}</td>
-                     <td> <button (click)="eliminarPersona(item.id)" class="btn btn-primary" >Eliminar</button></td>
+                    <tr *ngFor="let item of personas">
+                        <td>{{item.id}}</td>
+                        <td>{{item.producname}}</td>
+                        <td>{{item.price}}</td>
+                        <td>{{item.description}}</td>
+                        <td> <button (click)="eliminarPersona(item.id)" class="btn btn-primary">Eliminar</button>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
         </div>
         <div class="col-4">
             <h2>Formulario Producto</h2>
-           <div class="form-group">
-               <label for="controlNombre">Producto</label>
-               <input type="text" [(ngModel)]="agregarPersonaProducto.Producto" class="form-control" placeholder="Nombre del Producto">
-           </div>
-           <div class="form-group">
-                <label for="controlNombre">Precio</label>
-                <input type="text" [(ngModel)]="agregarPersonaProducto.Precio" class="form-control" placeholder="Precio del Producto">
+            <div class="form-group">
+                <label for="controlNombre">Producto</label>
+                <input type="text" [(ngModel)]="agregarPersonaProducto.Producto" class="form-control"
+                    placeholder="Nombre del Producto">
             </div>
             <div class="form-group">
-                    <label for="controlNombre">Descripcion</label>
-                    <input type="text" [(ngModel)]="agregarPersonaProducto.Descripcion" class="form-control" placeholder="Descripcion del Producto">
+                <label for="controlNombre">Precio</label>
+                <input type="text" [(ngModel)]="agregarPersonaProducto.Precio" class="form-control"
+                    placeholder="Precio del Producto">
+            </div>
+            <div class="form-group">
+                <label for="controlNombre">Descripcion</label>
+                <input type="text" [(ngModel)]="agregarPersonaProducto.Descripcion" class="form-control"
+                    placeholder="Descripcion del Producto">
             </div>
 
             <td> <button (click)="agregarPersona()" class="btn btn-primary ">Agregar</button></td>
         </div>
     </div>
+</div>
 </div>

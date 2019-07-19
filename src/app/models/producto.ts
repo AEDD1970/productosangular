@@ -1,11 +1,11 @@
 export interface Product {
-    id?: number;
+    id: number | string;
     producname: string;
     price: number | string;
     description: string;
 }
 
 
-export interface ProductService {
+export type ProductService = {
     data: Required<Product>[]
-}
+}[]

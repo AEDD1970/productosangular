@@ -9,16 +9,16 @@ import { Product } from '../models/producto';
 })
 export class PersonaComponent implements OnInit {
 
-  agregarPersonaProducto: Product = { producname: '', price: '', description: '' }
-  personas: Required<Product[]>;
+  agregarPersonaProducto: Product = { id: '', producname: '', price: '', description: '' }
+  personas: Required<Product[]> = []
   constructor(private personaService: PersonaService) {
 
   }
   ObtenerPersona() {
+
     this.personaService.obtenerTodosProductos().subscribe(resultado => {
-      console.log(resultado);
-      
-      this.personas = resultado.data
+      //console.log(resultado);
+      this.personas = resultado[0].data
     },
       error => {
 
@@ -35,4 +35,5 @@ export class PersonaComponent implements OnInit {
   agregarPersona() {
 
   }
+
 }

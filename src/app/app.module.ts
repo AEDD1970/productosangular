@@ -6,17 +6,21 @@ import { PersonaComponent } from './persona/persona.component';
 import{PersonaService} from'./servicio/persona.service';
 import {HttpClientModule} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { IndexComponent } from './index/index.component';
+import { AppRoutingModule } from './app-routing.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    PersonaComponent
+    PersonaComponent,
+    IndexComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [PersonaService],
   bootstrap: [AppComponent]
