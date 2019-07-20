@@ -10,8 +10,8 @@ import { Product, ProductService } from '../models/producto';
 export class PersonaService {
 
   constructor(private httpClient: HttpClient) { }
+
   obtenerTodosProductos(): Observable<ProductService> {
-    
     return this.httpClient.get<ProductService>("https://stunning-great-basin-88024.herokuapp.com/products")
 
   }
@@ -23,8 +23,8 @@ export class PersonaService {
 
   }
 
-  eliminarProductos(identificador): Observable<any> {
-    return this.httpClient.delete("" + identificador)
+  eliminarProductos(identificador): Observable<ProductService> {
+    return this.httpClient.delete<ProductService>("https://stunning-great-basin-88024.herokuapp.com/products/" + identificador)
 
   }
 

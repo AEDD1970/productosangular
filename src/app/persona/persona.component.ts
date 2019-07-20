@@ -12,7 +12,7 @@ export class PersonaComponent implements OnInit {
   agregarPersonaProducto: Product = { id: '', producname: '', price: '', description: '' }
   personas: Required<Product[]> = []
   constructor(private personaService: PersonaService) {
-
+    this.ObtenerPersona();
   }
   ObtenerPersona() {
 
@@ -30,6 +30,14 @@ export class PersonaComponent implements OnInit {
     this.ObtenerPersona()
   }
   eliminarPersona(identificador) {
+    this.personaService.eliminarProductos(identificador).subscribe(resultado => { 
+      this.ObtenerPersona();
+    },
+    
+    error => {
+
+      console.log(JSON.stringify(error));
+    });
 
   }
   agregarPersona() {

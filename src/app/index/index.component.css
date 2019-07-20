@@ -36,3 +36,6 @@ ul {
  li.admistrador{
     float: right !important;
   }
+  .margin{
+      padding: 40px;
+  }
