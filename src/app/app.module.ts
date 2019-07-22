@@ -8,6 +8,14 @@ import {HttpClientModule} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { IndexComponent } from './index/index.component';
 import { AppRoutingModule } from './app-routing.module';
+import{ RouterModule, Routes} from '@angular/router';
+import { from } from 'rxjs';
+
+const routes: Routes=[
+  { path: '', component: IndexComponent  },
+  { path: 'index', component: IndexComponent  },
+  { path: 'persona', component: PersonaComponent }
+]
 
 
 @NgModule({
@@ -20,7 +28,7 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    AppRoutingModule
+    RouterModule.forRoot(routes)
   ],
   providers: [PersonaService],
   bootstrap: [AppComponent]

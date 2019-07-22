@@ -30,17 +30,23 @@ export class PersonaComponent implements OnInit {
     this.ObtenerPersona()
   }
   eliminarPersona(identificador) {
-    this.personaService.eliminarProductos(identificador).subscribe(resultado => { 
+    this.personaService.eliminarProductos(identificador).subscribe(resultado => {
       this.ObtenerPersona();
     },
-    
-    error => {
 
-      console.log(JSON.stringify(error));
-    });
+      error => {
+
+        console.log(JSON.stringify(error));
+      });
 
   }
   agregarPersona() {
+    this.personaService.agregarProductos(this.agregarPersonaProducto).subscribe(resultado => {
+      this.ObtenerPersona();
+    },
+      error => {
+        console.log(JSON.stringify(error));
+      });
 
   }
 

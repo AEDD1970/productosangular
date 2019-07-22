@@ -19,7 +19,7 @@ export class PersonaService {
   agregarProductos(persona: any) {
     let json = JSON.stringify(persona);
     let headers = new HttpHeaders().set('Content-Type', 'application/json');
-    return this.httpClient.post("", json, { headers: headers });
+    return this.httpClient.post("https://stunning-great-basin-88024.herokuapp.com/products", json, { headers: headers });
 
   }
 
