@@ -10,11 +10,13 @@ import { IndexComponent } from './index/index.component';
 import { AppRoutingModule } from './app-routing.module';
 import{ RouterModule, Routes} from '@angular/router';
 import { from } from 'rxjs';
+import { CollarComponent } from './collar/collar.component';
 
 const routes: Routes=[
   { path: '', component: IndexComponent  },
   { path: 'index', component: IndexComponent  },
-  { path: 'persona', component: PersonaComponent }
+  { path: 'persona', component: PersonaComponent },
+  { path: 'collar', component: CollarComponent }
 ]
 
 
@@ -22,7 +24,8 @@ const routes: Routes=[
   declarations: [
     AppComponent,
     PersonaComponent,
-    IndexComponent
+    IndexComponent,
+    CollarComponent
   ],
   imports: [
     BrowserModule,

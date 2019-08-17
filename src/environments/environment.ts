@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  url_api:'http://localhost:3000/',
+  url_api_prod:'https://stunning-great-basin-88024.herokuapp.com/'
 };
 
 /*

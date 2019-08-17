@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PersonaService } from '../servicio/persona.service';
 import { Product } from '../models/producto';
+import { TypeProduct } from '../models/typeproduct';
 
 @Component({
   selector: 'app-persona',
@@ -8,12 +9,23 @@ import { Product } from '../models/producto';
   styleUrls: ['./persona.component.css']
 })
 export class PersonaComponent implements OnInit {
-
+  //add Product
   agregarPersonaProducto: Product = { id: '', producname: '', price: '', description: '' }
   personas: Required<Product[]> = []
+
+  //add TypeProduct
+
+  agregarTypeProduct: TypeProduct = { nametype: '' }
+  types: Required<TypeProduct[]> = []
+
+
   constructor(private personaService: PersonaService) {
     this.ObtenerPersona();
+
+
   }
+
+
   ObtenerPersona() {
 
     this.personaService.obtenerTodosProductos().subscribe(resultado => {
@@ -48,6 +60,16 @@ export class PersonaComponent implements OnInit {
         console.log(JSON.stringify(error));
       });
 
+  }
+
+  agregarType() {
+
+    this.personaService.agregarTypes(this.agregarTypeProduct).subscribe(resultado => {
+    },
+    error => {
+      console.log(JSON.stringify(error));
+    });
+    
   }
 
 }
