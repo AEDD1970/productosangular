@@ -1,12 +1,4 @@
-<div class="header">
-    <ul>
-        <li class="index"> <a routerLink="/index">Inicio</a></li>
-        <li> <a routerLink="#">Pulseras</a></li>
-        <li> <a routerLink="#">Collares</a></li>
-        <li> <a routerLink="#">Anillos</a></li>
-        <li class="admistrador"> <a routerLink="/persona">Administrador</a></li>
-    </ul>
-</div>
+
 
 <div class="formularioAdmin">
     <div class="titule">
@@ -17,21 +9,34 @@
     <div class="container">
         <div class="row">
             <div class="col-8">
+                    <tr>
+                            <input type ="text" class="form-control" name="filterPost" placeholder="Buscar Poducto" [(ngModel)]="filterPost">
+                        </tr>
+                        <br>
+                            
                 <table class="table table-striped table-bordered table-dark">
                     <thead class="thead-dark">
-                        <th>Id</th>
-                        <th>Producto</th>
-                        <th>Precio</th>
-                        <th>Descripcion</th>
-                        <th>Eliminar</th>
+ 
+                        <tr>
+                            <th>Id</th>
+                            <th>Producto</th>
+                            <th>Precio</th>
+                            <th>Categoria</th>
+                            <th>Descripcion</th>
+                            <th>Cantidad</th>
+                            <th>Eliminar</th>
+                        </tr>
 
                     </thead>
                     <tbody>
-                        <tr *ngFor="let item of personas">
+                        <tr *ngFor="let item of personas | filter:filterPost">
+
                             <td>{{item.id}}</td>
                             <td>{{item.producname}}</td>
                             <td>{{item.price}}</td>
+                            <td>{{item.type_product_id}}</td>
                             <td>{{item.description}}</td>
+                            <td>{{item.quantiyy}}</td>
                             <td> <button (click)="eliminarPersona(item.id)" class="btn btn-primary">Eliminar</button>
                             </td>
                         </tr>
@@ -54,6 +59,21 @@
                     <label for="controlNombre">Descripcion</label>
                     <input type="text" [(ngModel)]="agregarPersonaProducto.description" class="form-control"
                         placeholder="Descripcion del Producto">
+                </div>
+                <div class="form-group">
+                    <label for="controlNombre">Cantidad</label>
+                    <input type="number" [(ngModel)]="agregarPersonaProducto.quantiyy" class="form-control"
+                        placeholder="Ingresa la cantidad ">
+                </div>
+
+                <div class="form-group">
+                    <label for="controlNombre">Categoria</label>
+                    <select id="types" name="types" type="text" [(ngModel)]="agregarPersonaProducto.type_product_id" class="form-control"
+                        >
+                        <option value="1">collar</option>
+                        <option value="2">pulsera</option>
+                        <option value="3">anillo</option>
+                        </select>
                 </div>
 
                 <td> <button (click)="agregarPersona()" class="btn btn-primary ">Agregar</button></td>

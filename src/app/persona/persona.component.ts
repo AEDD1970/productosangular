@@ -10,27 +10,35 @@ import { TypeProduct } from '../models/typeproduct';
 })
 export class PersonaComponent implements OnInit {
   //add Product
-  agregarPersonaProducto: Product = { id: '', producname: '', price: '', description: '' }
+  agregarPersonaProducto: Product = { producname: '', type_product_id: '', price: '', description: '', quantiyy: '' }
   personas: Required<Product[]> = []
 
+  filterPost = '';
   //add TypeProduct
 
-  agregarTypeProduct: TypeProduct = { nametype: '' }
-  types: Required<TypeProduct[]> = []
+  agregarTypeProduct: TypeProduct = { nametype: '', name: '' }
+  types: Required<TypeProduct[]> = [
+    { nametype: 1, name: 'Collar' },
+    { nametype: 2, name: 'Pulsera' },
+    { nametype: 3, name: 'Anillo' }
+  ];
 
 
   constructor(private personaService: PersonaService) {
-    this.ObtenerPersona();
-
+    this.obtenerPersona();
+    this.obetenerTypes();
 
   }
 
+  ngOnInit() {
+    this.obtenerPersona()
+    this.obetenerTypes()
+  }
 
-  ObtenerPersona() {
-
+  obtenerPersona() {
     this.personaService.obtenerTodosProductos().subscribe(resultado => {
-      //console.log(resultado);
-      this.personas = resultado[0].data
+
+      this.personas = resultado.data
     },
       error => {
 
@@ -38,12 +46,21 @@ export class PersonaComponent implements OnInit {
       });
   }
 
-  ngOnInit() {
-    this.ObtenerPersona()
+  obetenerTypes() {
+    this.personaService.obtenerTodosType().subscribe(resultado => {
+
+      this.types = resultado[0].types
+    },
+      error => {
+
+        console.log(JSON.stringify(error));
+      });
+
   }
+
   eliminarPersona(identificador) {
     this.personaService.eliminarProductos(identificador).subscribe(resultado => {
-      this.ObtenerPersona();
+      this.personas = this.personas.filter(({ id }) => id != identificador)
     },
 
       error => {
@@ -53,8 +70,8 @@ export class PersonaComponent implements OnInit {
 
   }
   agregarPersona() {
-    this.personaService.agregarProductos(this.agregarPersonaProducto).subscribe(resultado => {
-      this.ObtenerPersona();
+    this.personaService.agregarProductos(this.agregarPersonaProducto).subscribe((product) => {
+      this.personas = [...this.personas, product]
     },
       error => {
         console.log(JSON.stringify(error));
@@ -62,14 +79,10 @@ export class PersonaComponent implements OnInit {
 
   }
 
-  agregarType() {
-
-    this.personaService.agregarTypes(this.agregarTypeProduct).subscribe(resultado => {
-    },
-    error => {
-      console.log(JSON.stringify(error));
-    });
-    
-  }
-
 }
+/**
+ * @description estudio
+ * @
+ * primero las propiedades, luego el cosntructor, luego lo inicia al cargar mi htnml y por ultimo mi metodos o funciones
+ */
+

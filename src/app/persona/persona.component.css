@@ -1,33 +1,4 @@
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333;
-  position: fixed;
-  top: 0;
-  width: 100%;
-}
 
-li {
-  float: left;
-}
-
-li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-li a:hover:not(.active) {
-  background-color: rgb(170, 196, 218);
-}
-
-.active {
-  background-color: rgb(76, 119, 175);
-}
 
 .collar{
   background: linear-gradient( blue, #00ffff);

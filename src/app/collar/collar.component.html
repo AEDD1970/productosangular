@@ -1,31 +1,8 @@
 <div class="collar">
-    <div class="header">
-        <ul>
-            <li> <a routerLink="/index">Inicio</a></li>
-            <li> <a routerLink="#">Pulseras</a></li>
-            <li class="collares"> <a routerLink="#">Collares</a></li>
-            <li> <a routerLink="#">Anillos</a></li>
-        </ul>
-    <p>.</p>
-    <p>.</p>
         <div class="container">
             <h1>Galeria de Imagens</h1>
             <div class="gallery-conteiner">
-              <div class="gallery-item"><a href="#" target="_blank"><img src="https://uswitch-cms1.imgix.net/jekyll-cms-website/gas-electricity/guides/assets/images/gas-electricity/guides/energy-guides/electricity-comparison.jpg?ixlib=rb-1.1.0&amp;auto=format&amp;fit=max"></a></div>
-              <div class="gallery-item"><a href="#" target="_blank"><img src="https://uswitch-cms1.imgix.net/jekyll-cms-website/gas-electricity/guides/assets/images/gas-electricity/guides/energy-guides/electricity-comparison.jpg?ixlib=rb-1.1.0&amp;auto=format&amp;fit=max"></a></div>
-              <div class="gallery-item"><a href="#" target="_blank"><img src="https://uswitch-cms1.imgix.net/jekyll-cms-website/gas-electricity/guides/assets/images/gas-electricity/guides/energy-guides/electricity-comparison.jpg?ixlib=rb-1.1.0&amp;auto=format&amp;fit=max"></a></div>
-              <div class="gallery-item"><a href="#" target="_blank"><img src="https://uswitch-cms1.imgix.net/jekyll-cms-website/gas-electricity/guides/assets/images/gas-electricity/guides/energy-guides/electricity-comparison.jpg?ixlib=rb-1.1.0&amp;auto=format&amp;fit=max"></a></div>
-              <div class="gallery-item"><a href="#" target="_blank"><img src="https://uswitch-cms1.imgix.net/jekyll-cms-website/gas-electricity/guides/assets/images/gas-electricity/guides/energy-guides/electricity-comparison.jpg?ixlib=rb-1.1.0&amp;auto=format&amp;fit=max"></a></div>
-              <div class="gallery-item"><a href="#" target="_blank"><img src="https://uswitch-cms1.imgix.net/jekyll-cms-website/gas-electricity/guides/assets/images/gas-electricity/guides/energy-guides/electricity-comparison.jpg?ixlib=rb-1.1.0&amp;auto=format&amp;fit=max"></a></div>
-              <div class="gallery-item"><a href="#" target="_blank"><img src="https://uswitch-cms1.imgix.net/jekyll-cms-website/gas-electricity/guides/assets/images/gas-electricity/guides/energy-guides/electricity-comparison.jpg?ixlib=rb-1.1.0&amp;auto=format&amp;fit=max"></a></div>
-              <div class="gallery-item"><a href="#" target="_blank"><img src="https://uswitch-cms1.imgix.net/jekyll-cms-website/gas-electricity/guides/assets/images/gas-electricity/guides/energy-guides/electricity-comparison.jpg?ixlib=rb-1.1.0&amp;auto=format&amp;fit=max"></a></div>
-              <div class="gallery-item"><a href="#" target="_blank"><img src="https://uswitch-cms1.imgix.net/jekyll-cms-website/gas-electricity/guides/assets/images/gas-electricity/guides/energy-guides/electricity-comparison.jpg?ixlib=rb-1.1.0&amp;auto=format&amp;fit=max"></a></div>
-              <div class="gallery-item"><a href="#" target="_blank"><img src="https://uswitch-cms1.imgix.net/jekyll-cms-website/gas-electricity/guides/assets/images/gas-electricity/guides/energy-guides/electricity-comparison.jpg?ixlib=rb-1.1.0&amp;auto=format&amp;fit=max"></a></div>
-              <div class="gallery-item"><a href="#" target="_blank"><img src="https://uswitch-cms1.imgix.net/jekyll-cms-website/gas-electricity/guides/assets/images/gas-electricity/guides/energy-guides/electricity-comparison.jpg?ixlib=rb-1.1.0&amp;auto=format&amp;fit=max"></a></div>
-              <div class="gallery-item"><a href="#" target="_blank"><img src="https://uswitch-cms1.imgix.net/jekyll-cms-website/gas-electricity/guides/assets/images/gas-electricity/guides/energy-guides/electricity-comparison.jpg?ixlib=rb-1.1.0&amp;auto=format&amp;fit=max"></a></div>
-            </div>
-
+              <div *ngFor="let list of listProduct" class="gallery-item"><a [routerLink]="list.url" ><img [src]="list.image"></a></div>
+          </div>
         </div>
-
-
-    </div>
+ </div>

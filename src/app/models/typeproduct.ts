@@ -1,7 +1,8 @@
 export interface TypeProduct{
-    nametype: | string;
+    nametype: number | string;
+    name: number | string;
 }
 
 export type TypeProductService = {
-    type: Required<TypeProduct>[]
+    types: Required<TypeProduct>[]
 }[]
