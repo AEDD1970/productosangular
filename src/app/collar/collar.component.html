@@ -1,8 +1,20 @@
-<div class="collar">
-        <div class="container">
-            <h1>Galeria de Imagens</h1>
-            <div class="gallery-conteiner">
-              <div *ngFor="let list of listProduct" class="gallery-item"><a [routerLink]="list.url" ><img [src]="list.image"></a></div>
-          </div>
-        </div>
- </div>
+<div *ngIf="flagViewProduct" class="collar">
+  <div class="container">
+    <h1>Galeria de Imagens</h1>
+    <div class="gallery-conteiner">
+      <div *ngFor="let list of collar" class="gallery-item" (click)="sendProduct(list)"><img [src]="list.image"></div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="!flagViewProduct">
+  <div class="mt-4">  <button (click)="devolver()" class="form-control">regresar</button></div>
+  <ng-container  *ngTemplateOutlet="childProduct"></ng-container>
+</div>
+
+
+
+
+<ng-template #childProduct>
+  <app-collar1 [reciveData]="sendData"></app-collar1>
+</ng-template>

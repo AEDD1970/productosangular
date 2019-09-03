@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PersonaService } from '../servicio/persona.service';
-import { Product } from '../models/producto';
+import { Product, ProductApi } from '../models/producto';
 import { TypeProduct } from '../models/typeproduct';
 
 @Component({
@@ -10,14 +10,14 @@ import { TypeProduct } from '../models/typeproduct';
 })
 export class PersonaComponent implements OnInit {
   //add Product
-  agregarPersonaProducto: Product = { producname: '', type_product_id: '', price: '', description: '', quantiyy: '' }
-  personas: Required<Product[]> = []
-
+  agregarPersonaProducto: Product = {id: '', producname: '', type_product_id: '', price: '', description: '', quantiyy: '', image: '' }
+  personas: ProductApi[] = []
+  fileEvent: any;
   filterPost = '';
   //add TypeProduct
 
   agregarTypeProduct: TypeProduct = { nametype: '', name: '' }
-  types: Required<TypeProduct[]> = [
+  types: TypeProduct[] = [
     { nametype: 1, name: 'Collar' },
     { nametype: 2, name: 'Pulsera' },
     { nametype: 3, name: 'Anillo' }
@@ -39,6 +39,7 @@ export class PersonaComponent implements OnInit {
     this.personaService.obtenerTodosProductos().subscribe(resultado => {
 
       this.personas = resultado.data
+      console.log(this.personas);
     },
       error => {
 
@@ -69,14 +70,46 @@ export class PersonaComponent implements OnInit {
       });
 
   }
-  agregarPersona() {
-    this.personaService.agregarProductos(this.agregarPersonaProducto).subscribe((product) => {
-      this.personas = [...this.personas, product]
-    },
-      error => {
-        console.log(JSON.stringify(error));
-      });
+  async agregarPersona() {
 
+    var dataResult = await this.readFile();
+
+    if(!dataResult['isError']){
+      this.agregarPersonaProducto.image = dataResult['result'];
+
+      this.personaService.agregarProductos(this.agregarPersonaProducto).subscribe((product) => {
+        this.personas = [...this.personas, product]
+      },
+        error => {
+          console.log(JSON.stringify(error));
+        });
+    }else{
+      console.log(dataResult['result']);
+    }
+
+
+    
+  }
+
+  chargeEventFile(eventObj) {
+    this.fileEvent = eventObj;
+  }
+
+
+  async readFile() {
+
+    return new Promise<any>((resolve, rejeact) => {
+      let file = this.fileEvent.target.files[0];
+      let reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = function () {
+
+        resolve({ isError: false, result: reader.result });
+      };
+      reader.onerror = function (error) {
+        resolve({ isError: true, result: error });
+      };
+    });
   }
 
 }

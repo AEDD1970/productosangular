@@ -1,53 +1,53 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { TypeProduct, TypeProductService } from '../models/typeproduct';
+import { TypeProductService } from '../models/typeproduct';
 import { Observable } from 'rxjs';
-import { Product, ProductService } from '../models/producto';
-import { environment } from 'src/environments/environment';
+import { ProductService, ProductApi, Product } from '../models/producto';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PersonaService {
+  get url() { return "https://stunning-great-basin-88024.herokuapp.com" }
 
   constructor(private httpClient: HttpClient) { }
 
   obtenerTodosProductos(): Observable<ProductService> {
-    return this.httpClient.get<ProductService>("https://stunning-great-basin-88024.herokuapp.com/products")
+    return this.httpClient.get<ProductService>(this.url + "/products")
 
   }
   obtenerTodosType(): Observable<TypeProductService> {
-    return this.httpClient.get<TypeProductService>("https://stunning-great-basin-88024.herokuapp.com/type_product")
+    return this.httpClient.get<TypeProductService>(this.url + "/type_product")
 
   }
 
-  obtenerTodosTypeCollar(): Observable<ProductService>{
-    return this.httpClient.get<ProductService>("https://stunning-great-basin-88024.herokuapp.com/products/show_typec/1")
-  }
-  obtenerTodosTypePpulsera(): Observable<ProductService>{
-    return this.httpClient.get<ProductService>("https://stunning-great-basin-88024.herokuapp.com/products/show_typec/2")
+  obtenerUnicoCollar(type_product_id): Observable<ProductApi[]> {
+    return this.httpClient.get<ProductApi[]>(`${this.url}/products/show_typec/${type_product_id}`)
   }
 
-  obtenerTodosTypeAnillo(): Observable<ProductService>{
-    return this.httpClient.get<ProductService>("https://stunning-great-basin-88024.herokuapp.com/products/show_typec/3")
+  obtenerTodosTypeCollar(id): Observable<Product> {
+    return this.httpClient.get<Product>(`${this.url}/products/show_uniquess/${id}`)
   }
 
-  agregarProductos(persona: any) {
-    let json = JSON.stringify(persona);
-    let headers = new HttpHeaders().set('Content-Type', 'application/json');
-    return this.httpClient.post<Product>("https://stunning-great-basin-88024.herokuapp.com/products", json, { headers: headers });
+  agregarProductos(persona: Product) {
+    const form = new FormData()
+    Object.keys(persona).forEach(input => {
+      form.append(input, persona[input])
+    })
+    return this.httpClient.post<ProductApi>(this.url + "/products", form);
+
 
   }
 
-  agregarTypes(type:any){
+  agregarTypes(type: any) {
     let json = JSON.stringify(type);
     let headers = new HttpHeaders().set('Content-Type', 'application/json');
-    return this.httpClient.post("https://stunning-great-basin-88024.herokuapp.com/type_product", json, { headers: headers });
+    return this.httpClient.post(this.url + "/type_product", json, { headers: headers });
 
   }
 
   eliminarProductos(identificador): Observable<ProductService> {
-    return this.httpClient.delete<ProductService>("https://stunning-great-basin-88024.herokuapp.com/products/" + identificador)
+    return this.httpClient.delete<ProductService>(this.url + "/products/" + identificador)
 
   }
 

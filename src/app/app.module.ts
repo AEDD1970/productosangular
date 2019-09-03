@@ -15,6 +15,7 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { Collar1Component } from './collares/collar1/collar1.component';
 import { Collar2Component } from './collares/collar2/collar2.component';
 import { MenuComponent } from './menu/menu.component';
+import { AlifeFileToBase64Module } from 'alife-file-to-base64';
 
 const routes: Routes=[
   //rotes principalzz
@@ -23,7 +24,7 @@ const routes: Routes=[
   { path: 'persona', component: PersonaComponent },
   { path: 'collar', component: CollarComponent },
   //rotes secundary necklaces
-  { path: 'collar/collar1', component: Collar1Component },
+  { path: 'collares/collar1', component: Collar1Component },
   { path: 'collar2', component: Collar2Component }
 ]
 
@@ -43,7 +44,8 @@ const routes: Routes=[
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    RouterModule.forRoot(routes, { useHash: true })
+    RouterModule.forRoot(routes, { useHash: true }),
+    AlifeFileToBase64Module
   ],
   providers: [PersonaService],
   bootstrap: [AppComponent]
