@@ -16,12 +16,8 @@ export class PersonaComponent implements OnInit {
   filterPost = '';
   //add TypeProduct
 
-  agregarTypeProduct: TypeProduct = { nametype: '', name: '' }
-  types: TypeProduct[] = [
-    { nametype: 1, name: 'Collar' },
-    { nametype: 2, name: 'Pulsera' },
-    { nametype: 3, name: 'Anillo' }
-  ];
+  agregarTypeProduct: TypeProduct = { id: '', name: '' }
+  types: TypeProduct[]
 
 
   constructor(private personaService: PersonaService) {
@@ -48,7 +44,7 @@ export class PersonaComponent implements OnInit {
   }
 
   obetenerTypes() {
-    this.personaService.obtenerTodosType().subscribe(resultado => {
+    this.personaService.obtenerTodosType().subscribe( resultado => {
 
       this.types = resultado[0].types
     },

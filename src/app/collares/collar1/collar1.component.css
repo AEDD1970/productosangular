@@ -7,9 +7,10 @@
     font-weight: bold;
 }
 .container{
-    border: 3px solid green;
+    border: 5px solid blue;
+    border-style: inset;
 }
 .stars{
-    top: 400px !important;
-    
+    top: 500px !important;
+    width: 740px !important;
 }

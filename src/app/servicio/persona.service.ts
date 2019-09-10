@@ -8,7 +8,7 @@ import { ProductService, ProductApi, Product } from '../models/producto';
   providedIn: 'root'
 })
 export class PersonaService {
-  get url() { return "https://stunning-great-basin-88024.herokuapp.com" }
+  get url() { return "https://tiendamarveya.herokuapp.com" }
 
   constructor(private httpClient: HttpClient) { }
 

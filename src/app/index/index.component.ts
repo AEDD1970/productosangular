@@ -14,6 +14,9 @@ export class IndexComponent implements OnInit {
     'lili-blanca.jpg',
     'rosa-negra.jpg',
   ]
+  public logo = [
+    'logo.PNG'
+  ]
 
   constructor() { }
 

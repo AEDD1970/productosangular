@@ -1,5 +1,5 @@
 export interface TypeProduct{
-    nametype: number | string;
+    id: number | string;
     name: number | string;
 }
 

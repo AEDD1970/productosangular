@@ -42,7 +42,7 @@
                             </td>
                             <td> <button (click)="eliminarPersona(item.id)" class="btn btn-primary">Eliminar</button>
                             </td>
-                            
+
                         </tr>
                     </tbody>
                 </table>
@@ -74,22 +74,22 @@
                     <label for="controlNombre">Imagen</label>
                     <div class="form-group">
 
-                            <input type="file" (change)="chargeEventFile($event)" class="btn btn-primary center" />
+                        <input type="file" (change)="chargeEventFile($event)" class="btn btn-primary center" />
 
                     </div>
 
 
-                <div class="form-group">
-                    <label for="controlNombre">Categoria</label>
-                    <select type="text" [(ngModel)]="agregarPersonaProducto.type_product_id" class="form-control">
-                        <option value="1">collar</option>
-                        <option value="2">pulsera</option>
-                        <option value="3">anillo</option>
-                    </select>
-                </div>
+                    <div class="form-group">
+                        <label for="controlNombre">Categoria</label>
+                        <select type="number" [(ngModel)]="agregarPersonaProducto.type_product_id" class="form-control">
+                            <option *ngFor="let type of types" value={{type.id}}>
+                                {{type.id}}
+                            </option>
+                        </select>
+                    </div>
 
-                <td> <button (click)="agregarPersona()" class="btn btn-primary ">Agregar</button></td>
+                    <td> <button (click)="agregarPersona()" class="btn btn-primary ">Agregar</button></td>
+                </div>
             </div>
         </div>
     </div>
-</div>

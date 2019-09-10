@@ -8,12 +8,9 @@
 </div>
 
 <div *ngIf="!flagViewProduct">
-  <div class="mt-4">  <button (click)="devolver()" class="form-control">regresar</button></div>
-  <ng-container  *ngTemplateOutlet="childProduct"></ng-container>
+  <div> <button (click)="devolver()" class="pulse">regresar</button></div>
+  <ng-container *ngTemplateOutlet="childProduct"></ng-container>
 </div>
-
-
-
 
 <ng-template #childProduct>
   <app-collar1 [reciveData]="sendData"></app-collar1>

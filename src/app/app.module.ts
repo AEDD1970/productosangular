@@ -16,6 +16,8 @@ import { Collar1Component } from './collares/collar1/collar1.component';
 import { Collar2Component } from './collares/collar2/collar2.component';
 import { MenuComponent } from './menu/menu.component';
 import { AlifeFileToBase64Module } from 'alife-file-to-base64';
+import { PulserasComponent } from './pulseras/pulseras/pulseras.component';
+import { PulseraComponent } from './pulsera/pulsera.component';
 
 const routes: Routes=[
   //rotes principalzz
@@ -23,9 +25,9 @@ const routes: Routes=[
   { path: 'index', component: IndexComponent  },
   { path: 'persona', component: PersonaComponent },
   { path: 'collar', component: CollarComponent },
+  { path: 'pulsera', component: PulseraComponent },
   //rotes secundary necklaces
-  { path: 'collares/collar1', component: Collar1Component },
-  { path: 'collar2', component: Collar2Component }
+  { path: 'collares/collar1', component: Collar1Component }
 ]
 
 
@@ -38,7 +40,9 @@ const routes: Routes=[
     FilterPipe,
     Collar1Component,
     Collar2Component,
-    MenuComponent
+    MenuComponent,
+    PulserasComponent,
+    PulseraComponent
   ],
   imports: [
     BrowserModule,
