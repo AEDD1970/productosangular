@@ -15,11 +15,20 @@ export class Collar1Component implements OnInit, OnDestroy {
   @Input() reciveData;
   private unsuscribe: Subscription;
 
+   public objectOption: any = [];
+  public quantity:number = 0;
   constructor(private personaService: PersonaService) {
   }
   ngOnInit() {
    this.unsuscribe = this.reciveData.subscribe(data => {
       this.typec=data
+      this.objectOption=[];
+      for (let index = 0; index < this.typec.quantiyy; index++) {
+        this.objectOption.push({value:index+1,option:(index+1).toString()+' feet'})
+        
+      }
+
+      console.log( this.objectOption);
     })
    
   }
@@ -30,16 +39,20 @@ export class Collar1Component implements OnInit, OnDestroy {
   //obtener los collares
   ObetenerTypec(id) {
     this.personaService.obtenerTodosTypeCollar(id).subscribe(resultado => {
-
+     
       this.typec =resultado;
 
-      console.log(this.typec);
+     
     },
       error => {
 
         console.log(JSON.stringify(error));
       });
 
+  }
+
+  changeCountry(){
+console.log(this.quantity)
   }
 
 
