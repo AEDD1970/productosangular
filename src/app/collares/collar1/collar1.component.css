@@ -1,16 +1,27 @@
-.buy-car{
-    margin: 20px;
-    padding: 100px;
+.buy-car {
+  margin: 20px;
+  padding: 100px;
 }
-.forc{
-    font-family: Arial, Helvetica, sans-serif !important;
-    font-weight: bold;
+.forc {
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-weight: bold;
 }
-.container{
-    border: 5px solid blue;
-    border-style: inset;
+.container {
+  border: 5px solid blue;
+  border-style: inset;
 }
-.stars{
-    top: 500px !important;
-    width: 740px !important;
+.stars {
+  top: 500px !important;
+  width: 740px !important;
+}
+
+.dark-modal .modal-content {
+  background-color: #292b2c;
+  color: white;
+}
+.dark-modal .close {
+  color: white;
+}
+.light-blue-backdrop {
+  background-color: black;
 }

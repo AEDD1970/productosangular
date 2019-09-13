@@ -18,6 +18,7 @@ import { MenuComponent } from './menu/menu.component';
 import { AlifeFileToBase64Module } from 'alife-file-to-base64';
 import { PulserasComponent } from './pulseras/pulseras/pulseras.component';
 import { PulseraComponent } from './pulsera/pulsera.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 const routes: Routes=[
   //rotes principalzz
@@ -49,7 +50,8 @@ const routes: Routes=[
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot(routes, { useHash: true }),
-    AlifeFileToBase64Module
+    AlifeFileToBase64Module,
+    NgbModule
   ],
   providers: [PersonaService],
   bootstrap: [AppComponent]
