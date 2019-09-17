@@ -1,83 +1,146 @@
-
-
 <div clas="article">
-    
-
-
-            <div class="w3-content w3-section" style="max-width:100%">
-                <img class="" src="assets/{{images[index]}}" style="width:100%">
-
-                <div class="splash-container">
-                    <div class="splash">
-                        <h1 class="splash-head"> <marquee>Tienda Virtual</marquee></h1>
-                        <p class="splash-subhead">
-                         compra nuetros mejores poductos
-                        </p>
-                        <p>
-                            <a href="#" class="pure-button pure-button-primary">button</a>
-                        </p>
-                    </div>
-                </div>
-
-            </div>
-
+  <div class="w3-content w3-section" style="max-width:100%">
+    <img src="/assets/{{ images[index] }}" style="width:100%" />
+    <div class="splash-container">
+      <div class="splash">
+        <h1 class="splash-head"><marquee>Tienda Virtual</marquee></h1>
+        <p class="splash-subhead">
+          compra nuetros mejores poductos
+        </p>
+        <p>
+          <button
+            class="pure-button pure-button-primary"
+            (click)="openRegister()"
+          >
+            REGISTRAR
+          </button>
+        </p>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="content-wrapper">
-
-    <div class="ribbon l-box-lrg pure-g">
-        <div class="l-box-lrg is-center pure-u-1 pure-u-md-1-2 pure-u-lg-2-5">
-            <img width="300" alt="File Icons" class="pure-img-responsive" src="assets/{{logo}}">
-        </div>
-        <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-3-5">
-
-            <h2 class="content-head content-head-ribbon">Conocemos</h2>
-
-            <p>
-                vienvenidos a nuentra tienda virtual, una tienda pensado para ti y solo para ti
-            </p>
-        </div>
+  <div class="ribbon l-box-lrg pure-g">
+    <div class="l-box-lrg is-center pure-u-1 pure-u-md-1-2 pure-u-lg-2-5">
+      <img
+        width="300"
+        alt="File Icons"
+        class="pure-img-responsive"
+        src="assets/{{ logo }}"
+      />
     </div>
+    <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-3-5">
+      <h2 class="content-head content-head-ribbon">Conocemos</h2>
 
-    <div class="content">
-        <h2 class="content-head is-center">descripcion de pedidos y contactos</h2>
-
-        <div class="pure-g">
-            <div class="l-box-lrg pure-u-1 pure-u-md-2-5">
-                <form class="pure-form pure-form-stacked">
-                    <fieldset>
-
-                        <label for="name">Nombre Apellido</label>
-                        <input id="name" type="text" placeholder="Tu nombre">
-
-                        <label for="email">Email</label>
-                        <input id="email" type="email" placeholder="Tu Email">
-
-                        <label for="number">Numero Telefonico</label>
-                        <input id="number" type="number" placeholder="Tu numero de contacto">
-
-                        <button type="submit" class="pure-button">Sign Up</button>
-                    </fieldset>
-                </form>
-            </div>
-
-            <div class="l-box-lrg pure-u pure-u-md-3-5">
-                <h4>Descripcion</h4>
-                <p>
-                    ingrese en el cuadro de texto una descripcion de su pedido
-                </p>
-
-                <form class="pure-form pure-form-stacked">
-                <textarea for="text" placeholder="Descripción del pedido">Descripcion</textarea>
-               
-            </form>
-            </div>
-        </div>
-
+      <p>
+        vienvenidos a nuentra tienda virtual, una tienda pensado para ti y solo
+        para ti
+      </p>
     </div>
+  </div>
 
-    <div class="footer l-box is-center">
-        <p style="color: white">Todos nuestros productos son echos con amor</p>
+  <div class="content">
+    <h2 class="content-head is-center">descripcion de pedidos y contactos</h2>
+
+    <div class="pure-g">
+      <div class="l-box-lrg pure-u-1 pure-u-md-2-5">
+        <form class="pure-form pure-form-stacked">
+          <fieldset>
+            <label for="name">Nombre Apellido</label>
+            <input id="name" type="text" placeholder="Tu nombre" />
+
+            <label for="email">Email</label>
+            <input id="email" type="email" placeholder="Tu Email" />
+
+            <label for="number">Numero Telefonico</label>
+            <input
+              id="number"
+              type="number"
+              placeholder="Tu numero de contacto"
+            />
+
+            <button type="submit" class="pure-button">Sign Up</button>
+          </fieldset>
+        </form>
+      </div>
+
+      <div class="l-box-lrg pure-u pure-u-md-3-5">
+        <h4>Descripcion</h4>
+        <p>
+          ingrese en el cuadro de texto una descripcion de su pedido
+        </p>
+
+        <form class="pure-form pure-form-stacked">
+          <textarea for="text" placeholder="Descripción del pedido"></textarea>
+        </form>
+      </div>
     </div>
+  </div>
 
+  <div class="footer l-box is-center">
+    <p style="color: white">Todos nuestros productos son echos con amor</p>
+  </div>
 </div>
+
+<ng-template #modalForms let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Modal title</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <label for="email" class="col-form-label">Email</label>
+        <input
+          id="email"
+          type="email"
+          class="form-control"
+          placeholder=" Email"
+        />
+      </div>
+      <div class="form-group">
+        <label for="pasword" class="col-form-label">Contraseña</label>
+        <input
+          id="email"
+          type="password"
+          class="form-control"
+          placeholder=" Contraseña"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="number" class="col-form-label">Numero</label>
+        <input
+          id="number"
+          type="number"
+          class="form-control"
+          placeholder=" Número de telefono"
+        />
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-light"
+      (click)="modal.close('Close click')"
+    >
+      Cerrar
+    </button>
+    <button
+      type="button"
+      class="btn btn-light"
+      (click)="modal.sabe('Close click')"
+    >
+      Guardar
+    </button>
+  </div>
+</ng-template>

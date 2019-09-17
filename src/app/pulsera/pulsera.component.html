@@ -1,19 +1,18 @@
 <div *ngIf="flagViewProduct" class="pulsera">
-    <div class="container">
-      <h1>Galeria de Imagens</h1>
-      <div class="gallery-conteiner">
-        <div *ngFor="let list of pulsera" class="gallery-item" (click)="sendProduct(list)"><img [src]="list.image"></div>
+  <div class="container">
+    <h1>Galeria de Imagens</h1>
+    <div class="gallery-conteiner">
+      <div
+        *ngFor="let list of pulsera"
+        class="gallery-item"
+        (click)="sendProduct(list)"
+      >
+        <img [src]="list.image" />
       </div>
     </div>
   </div>
-  <div *ngIf="!flagViewProduct">
-    <div> <button (click)="devolver()" class="pulse">regresar</button></div>
-    <ng-container *ngTemplateOutlet="childProduct"></ng-container>
-  </div>
-  
-  <ng-template #childProduct>
-    <app-collar1 [reciveData]="sendData"></app-collar1>
-  </ng-template>
-
-  
-  
+</div>
+<div *ngIf="!flagViewProduct">
+  <div><button (click)="devolver()" class="pulse">regresahhhr</button></div>
+  <app-collar1 [reciveData]="sendData"></app-collar1>
+</div>
